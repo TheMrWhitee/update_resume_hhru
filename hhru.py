@@ -1,8 +1,10 @@
 import os
+import time
 
 import requests
 import telebot
 from dotenv import load_dotenv
+from schedule import every, repeat, run_pending
 
 load_dotenv()
 
@@ -20,6 +22,7 @@ def send_message(message):
     return bot.send_message(chat_id=CHAT_ID, text=message)
 
 
+@repeat(every(4).hours)
 def update_resume():
     response = requests.post(url, headers=headers)
     if response.status_code == 204:
@@ -30,5 +33,6 @@ def update_resume():
     return send_message(error)
 
 
-if __name__ == '__main__':
-    update_resume()
+while True:
+    run_pending()
+    time.sleep(1)
