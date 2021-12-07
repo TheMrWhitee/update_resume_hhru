@@ -1,5 +1,4 @@
 import os
-import re
 
 import requests
 import telebot
@@ -26,7 +25,7 @@ def update_resume():
     if response.status_code == 204:
         return send_message('Резюме успешно обновлено!')
     error_code = response.status_code
-    error_value = re.sub('[^a-zA-Z0-9_]', ' ', response.text).split()[-5]
+    error_value = response.json()['errors'][0]['value']
     error = f'Ошибка {error_code}: {error_value}'
     return send_message(error)
 
