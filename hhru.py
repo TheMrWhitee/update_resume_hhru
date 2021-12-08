@@ -26,8 +26,7 @@ def update_resume():
         return send_message('Резюме успешно обновлено!')
     error_code = response.status_code
     error_value = response.json()['errors'][0]['value']
-    error = f'Ошибка {error_code}: {error_value}'
-    return send_message(error)
+    return send_message(f'Ошибка {error_code}: {error_value}')
 
 
 if __name__ == '__main__':
