@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-ACCESS_TOKEN = os.getenv('HHRU_TOKEN')
+ACCESS_TOKEN = os.getenv('ACCESS_TOKEN')
 RESUME_ID = os.getenv('RESUME_ID')
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 CHAT_ID = os.getenv('CHAT_ID')

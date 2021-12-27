@@ -9,7 +9,7 @@
     . venv/bin/activate
     pip install -r requirements.txt
 #### Создайте файл *.env* и добавьте в него свои значения:
-    HHRU_TOKEN = Ваш токен, для доступа к API hh.ru
+    ACCESS_TOKEN = Ваш токен, для доступа к API hh.ru
     RESUME_ID = ID вашего резюме (из адресной строки страницы с резюме)
     TELEGRAM_TOKEN = Токен вашего телеграм-бота
     CHAT_ID = ID вашего телеграм аккаунта
