@@ -28,7 +28,7 @@
 Открываем cron на редактирование:
 
     crontab -e
-И добавляем в конец строку:
+И добавляем в конец строки:
 
     0 9 * * * update_resume_hhru/venv/bin/python update_resume_hhru/hhru.py
     1 13 * * * update_resume_hhru/venv/bin/python update_resume_hhru/hhru.py
