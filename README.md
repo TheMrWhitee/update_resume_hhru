@@ -30,7 +30,10 @@
     crontab -e
 И добавляем в конец строку:
 
-    0 */4 * * * update_resume_hhru/venv/bin/python update_resume_hhru/hhru.py
+    0 9 * * * update_resume_hhru/venv/bin/python update_resume_hhru/hhru.py
+    1 13 * * * update_resume_hhru/venv/bin/python update_resume_hhru/hhru.py
+    2 17 * * * update_resume_hhru/venv/bin/python update_resume_hhru/hhru.py
+    3 21 * * * update_resume_hhru/venv/bin/python update_resume_hhru/hhru.py
 
 Готово!  
 P.S. 4 таски с разницей в минуту используем потому что выполнение запроса занимает какое-то время (несколько мс),
