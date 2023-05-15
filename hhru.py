@@ -41,7 +41,8 @@ def refresh_token():
         new_access_token = response.json()['access_token']
         new_refresh_token = response.json()['refresh_token']
         write_to_env(new_access_token, new_refresh_token)
-        return send_message('Токен успешно обновлён!')
+        send_message('Токен успешно обновлён!')
+        return update_resume()
     error_code = response.status_code
     error = response.json()['error']
     error_description = response.json()['error_description']
