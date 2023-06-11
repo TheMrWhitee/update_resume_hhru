@@ -24,10 +24,16 @@ def send_message(message):
     return bot.send_message(chat_id=CHAT_ID, text=message)
 
 
-def update_resume():
-    response = requests.post(update_url, headers=headers)
+def update_resume(access_token=None):
+    if access_token:
+        new_headers = {'Authorization': f'Bearer {access_token}'}
+        response = requests.post(update_url, headers=new_headers)
+    else:
+        response = requests.post(update_url, headers=headers)
+
     if response.status_code == 204:
         return send_message('Резюме успешно обновлено!')
+
     error_code = response.status_code
     error_value = response.json()['errors'][0]['value']
     send_message(f'Ошибка {error_code}: {error_value}')
@@ -42,6 +48,8 @@ def refresh_token():
         new_refresh_token = response.json()['refresh_token']
         write_to_env(new_access_token, new_refresh_token)
         send_message('Токен успешно обновлён!')
+        update_resume(new_access_token)
+
     error_code = response.status_code
     error = response.json()['error']
     error_description = response.json()['error_description']
